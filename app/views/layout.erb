@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
+  <head>
+    <title>Tweetski</title>
+  </head>
 
-
-
-
-<%= yield %>
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
+    <%= yield %>
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src = "scripts/interface.js"></script>
