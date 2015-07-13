@@ -6,7 +6,7 @@ require 'dm-validations'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/tweetski_#{env}")
 
-# require_relative './models/peep'
+require_relative './models/peep'
 # require_relative './models/tag'
 # require_relative './models/user'
 
