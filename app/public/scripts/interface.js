@@ -1,0 +1,4 @@
+OMG
+docready
+
+("#like").click

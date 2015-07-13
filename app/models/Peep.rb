@@ -7,6 +7,7 @@ class Peep
   property :id,      Serial
   property :title,   String
   property :message, Text
+  # property :likes,   Integer 
 
   has n, :tags, through: Resource
 end
