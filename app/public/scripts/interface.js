@@ -1,4 +1,10 @@
-OMG
-docready
+$( document ).ready(function() {
 
-("#like").click
+
+	$(".buttons").click(function(event){
+		console.log(event.target.id)
+		$.post( "/likes", { peep_id: event.target.id  })
+	})
+
+	
+});

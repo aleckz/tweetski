@@ -28,6 +28,8 @@ class Tweetski < Sinatra::Base
     tags = params[:tags].split
     tags.each { |tag| peep.tags << Tag.create(name: tag) }
     peep.save
+
+
     redirect '/peeps'
   end
 
@@ -36,6 +38,18 @@ class Tweetski < Sinatra::Base
     @peeps = tag ? tag.peeps : []
     erb :'peeps/index'
   end
+
+  post '/likes' do
+    id = params[:peep_id]
+    peep = Peep.first(id: id)
+    current_likes = peep.likes || 0
+    new_likes = current_likes + 1
+    peep.update(likes: new_likes)
+    
+    redirect '/'
+    # puts peep.likes
+  end
+
 
 
 run if app_file == $0
