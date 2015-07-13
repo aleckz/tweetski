@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './app/models/peep'
+require './app/models/tag'
 
 class Tweetski < Sinatra::Base
 
@@ -24,6 +25,8 @@ class Tweetski < Sinatra::Base
   post '/peeps' do
     peep = Peep.new(title:   params[:title],
                     message: params[:message])
+    tags = params[:tags].split
+    tags.each { |tag| peep.tags << Tag.create(name: tag) }
     peep.save
     redirect '/peeps'
   end
