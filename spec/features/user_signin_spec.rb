@@ -13,11 +13,5 @@ feature 'User sign in' do
    click_button 'Sign in'
    expect(page).to have_content "Welcome, #{user.username}"
  end
-
-  def sign_in(username:, password:)
-   visit '/sessions/new'
-   fill_in :username, with: user.username
-   fill_in :password, with: user.password
-  end
-  
+ 
 end

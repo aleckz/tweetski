@@ -37,6 +37,8 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
 
+  config.include SessionHelpers
+
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do

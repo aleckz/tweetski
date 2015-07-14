@@ -1,3 +1,5 @@
+module SessionHelpers 
+
   def register(user)
     visit '/users/new'
     fill_in :username, with: user.username
@@ -8,3 +10,10 @@
     click_button 'Sign up'
   end
 
+  def sign_in(username:, password:)
+   visit '/sessions/new'
+   fill_in :username, with: user.username
+   fill_in :password, with: user.password
+  end
+
+end

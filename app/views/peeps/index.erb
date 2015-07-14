@@ -5,19 +5,18 @@
 <h1> Peeps </h1>
 <p><a href="/peeps/new">Add Peep</a></p>
 <p><a href="/users/new">Sign up</a></p>
-<!-- <p><a href="/sessions/new">Existing User? Sign in</a></p> -->
+<p><a href="/sessions/new">Existing User? Sign in</a></p>
 
 <ul id="peeps">
 <% @peeps.each do |peep| %>
 	<li class="peeplist" id="<%= peep.id %>">
 		Title:     <%= peep.title   %>
 		Message:   <%= peep.message %>
+		Timestamp: <%= peep.created_at %>
 		Likes:     <%= peep.likes   %>
-		<button class= "buttons" id='<%= peep.id %>'></button>
+		<button class= "buttons" id='<%= peep.id %>'>Like</button>
 	</li>
 <% end %>
 </ul>
-
-Likes:     <%= @likes %>
 
 </html>

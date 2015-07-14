@@ -19,7 +19,7 @@ class Tweetski < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :created_at.desc ]) 
     erb :'peeps/index'
   end
 
@@ -30,6 +30,7 @@ class Tweetski < Sinatra::Base
   post '/peeps' do
     peep = Peep.new(title:   params[:title],
                     message: params[:message])
+                    # user_id: current_user.id
     tags = params[:tags].split
     tags.each { |tag| peep.tags << Tag.create(name: tag) }
     peep.save

@@ -9,6 +9,8 @@ gem 'dm-postgres-adapter'
 gem 'dm-validations'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'dm-timestamps'
+gem 'websocket'
 
 group :test do
   gem 'byebug'
